@@ -15,78 +15,20 @@
             --text-light: #f5f5f5;
             --border-color: #2a2a35;
         }
-<script>
-        // 1. Hace funcionar el menú de las 3 rayitas en celular
-        function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('active');
-        }
 
-        // 2. Hace funcionar el submenú "Menú ▾" en celular
-        function toggleDropdown(event) {
-            // Solo lo activamos al hacer clic si estamos en celular (ancho menor a 850px)
-            if (window.innerWidth <= 850) {
-                event.preventDefault(); // Evita que la página salte hacia arriba
-                const dropdownMenu = document.getElementById('dropdown-menu');
-                dropdownMenu.classList.toggle('active');
-            }
-        }
-
-        // 3. Cierra el menú automáticamente cuando tocas una opción (Inicio, Contacto, etc.)
-        function cerrarMenuMovil() {
-            const navLinks = document.getElementById('nav-links');
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
-        }
-
-        // 4. Esta es la función que ya tenías para navegar entre "Inicio" y "Menú"
-        function mostrarSeccion(seccionId) {
-            // Ocultar todas las secciones principales
-            document.getElementById('seccion-inicio').style.display = 'none';
-            document.getElementById('seccion-menu').style.display = 'none';
-            
-            // Mostrar la que pedimos
-            document.getElementById('seccion-' + seccionId).style.display = 'block';
-            
-            // Cerrar el menú del celular al cambiar de sección
-            cerrarMenuMovil();
-            
-            // Subir al principio de la página
-            window.scrollTo(0, 0);
-        }
-
-        // 5. Esta función baja automáticamente a la categoría que tocas (ej: Hamburguesas)
-        function irACategoria(categoriaId) {
-            mostrarSeccion('menu'); // Primero nos aseguramos de estar en la pantalla del menú
-            
-            // Esperamos un momentito a que cargue la pantalla y bajamos a la categoría
-            setTimeout(() => {
-                const elemento = document.getElementById(categoriaId);
-                if (elemento) {
-                    elemento.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
-            
-            cerrarMenuMovil();
-        }
-    </script>
-</body>
-</html>
         html { scroll-padding-top: 100px; }
-        
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
         
-          body { 
-    background-color: var(--bg-outer); 
-    /* El linear-gradient pone una capa oscura al 85% sobre tu imagen para apagar el brillo */
-    background-image: linear-gradient(rgba(10, 10, 12, 0.88), rgba(10, 10, 12, 0.88)), url('https://i.postimg.cc/152pdRXY/vecteezy-vector-vintage-fast-food-seamless-pattern-hand-drawn-14469007.jpg'); 
-    background-size: 450px; /* Lo hice un pelín más grande para que no se repita tan seguido */
-    background-repeat: repeat; 
-    background-attachment: fixed; 
-    color: var(--text-light); 
-    line-height: 1.6;
-}
+        body { 
+            background-color: var(--bg-outer); 
+            /* El linear-gradient pone una capa oscura al 85% sobre tu imagen para apagar el brillo */
+            background-image: linear-gradient(rgba(10, 10, 12, 0.88), rgba(10, 10, 12, 0.88)), url('https://i.postimg.cc/152pdRXY/vecteezy-vector-vintage-fast-food-seamless-pattern-hand-drawn-14469007.jpg'); 
+            background-size: 450px; /* Lo hice un pelín más grande para que no se repita tan seguido */
+            background-repeat: repeat; 
+            background-attachment: fixed; 
+            color: var(--text-light); 
+            line-height: 1.6;
+        }
 
         /* --- NAVEGACIÓN --- */
         header { background-color: #000; padding: 8px 5%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; border-bottom: 2px solid var(--primary-color); box-shadow: 0 5px 20px rgba(0,0,0,0.8); }
@@ -130,14 +72,15 @@
         .hero-text h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
         .hero-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 25px; }
 
-/* Nueva clase para el logo central */
-.logo-central {
-    width: auto !important;
-    max-width: 300px !important; /* Puedes hacer este número más grande o más pequeño según prefieras */
-    max-height: auto !important;
-    margin: 0 auto; /* Lo centra horizontalmente */
-    border: none !important; /* Quita el borde para que se vea más limpio */
-}
+        /* Nueva clase para el logo central */
+        .logo-central {
+            width: auto !important;
+            max-width: 300px !important;
+            max-height: auto !important;
+            margin: 0 auto;
+            border: none !important;
+        }
+
         /* GALERÍA INICIO */
         .hero-gallery { display: flex; flex-direction: column; gap: 40px; margin-bottom: 50px; }
         .gallery-item { text-align: center; }
@@ -281,8 +224,8 @@
 
             <div class="hero-gallery">
                 <div style="text-align: center; margin-bottom: 20px;">
-                <img class="logo-central" src="https://i.postimg.cc/tTQxdjyw/logo2.jpg?w=1000" alt="Logo Tommy Burger">
-            </div>
+                    <img class="logo-central" src="https://i.postimg.cc/tTQxdjyw/logo2.jpg?w=1000" alt="Logo Tommy Burger">
+                </div>
 
                 <div class="gallery-item">
                     <img src="https://i.postimg.cc/gk82DMPV/local.png?w=1000" alt="Nuestro Local Tommy Burger">
@@ -336,8 +279,6 @@
 
         </div>
     </section>
-  
-
 
     <section id="seccion-menu">
         <div class="steam-container">
@@ -459,260 +400,84 @@
             <section id="chuzos" class="menu-section">
                 <h2 class="category-title">Chuzos</h2>
                 <div class="menu-grid">
-                    <div class="menu-item" onclick="mostrarDetalle('Chuzo de Cerdo', 'Trozos de cerdo marinados, asados a la perfección con arepita blanca.', 18000, 'https://i.postimg.cc/m2PvvfCv/chuzo.png?w=500')">
-                        <img class="menu-item-img" src="https://i.postimg.cc/m2PvvfCv/chuzo.png?w=500" alt="Chuzo Cerdo">
+                    <div class="menu-item" onclick="mostrarDetalle('Chuzo de Cerdo', 'Trozos de cerdo marinados, asados a la perfección con arepita.', 15000, 'https://via.placeholder.com/500?text=Chuzo+Cerdo')">
+                        <img class="menu-item-img" src="https://via.placeholder.com/500?text=Chuzo+Cerdo" alt="Chuzo de Cerdo">
                         <span class="item-title">Chuzo de Cerdo</span>
-                        <span class="item-price">$18.000</span>
+                        <span class="item-price">$15.000</span>
                     </div>
-                    <div class="menu-item" onclick="mostrarDetalle('Chuzo de Cerdo (Combo)', 'Chuzo de cerdo acompañado de porción de papas y bebida.', 25000, 'https://i.postimg.cc/J7x7rLy6/Chuzo-combo.png?w=500')">
-                        <img class="menu-item-img" src="https://i.postimg.cc/J7x7rLy6/Chuzo-combo.png?w=500" alt="Chuzo Combo">
-                        <span class="item-title">Chuzo de Cerdo (Combo)</span>
-                        <span class="item-price">$25.000</span>
                     </div>
-                </div>
             </section>
 
         </div>
     </section>
 
-    <div id="modal-detalle" class="modal">
-        <div class="modal-content">
-            <img id="img-detalle" src="" alt="Producto" class="modal-img">
-            <h2 id="titulo-detalle" style="color: var(--primary-color);"></h2>
-            <p id="desc-detalle" style="margin: 15px 0; color: #ccc; line-height: 1.4;"></p>
-            <div style="text-align: center; margin: 15px 0;">
-                <span id="precio-detalle" style="font-size: 1.8rem; font-weight: bold; background: #222; padding: 5px 20px; border-radius: 10px; border: 1px solid #444;"></span>
-            </div>
-            <button class="btn-accion" id="btn-agregar">Añadir al Carrito 🛒</button>
-            <button class="btn-cerrar" onclick="cerrarModales()">Volver</button>
-        </div>
-    </div>
-
-    <div id="modal-carrito" class="modal">
-        <div class="modal-content">
-            <h2 style="color: var(--primary-color); border-bottom: 2px solid #333; padding-bottom: 10px; margin-bottom: 15px;">Tu Pedido</h2>
-            
-            <div id="lista-carrito" style="max-height: 250px; overflow-y: auto; margin-bottom: 10px; padding-right: 5px;"></div>
-
-            <div id="controles-pedido">
-                <textarea id="notas-cocina" class="input-carrito" placeholder="Ej: Las hamburguesas sin cebolla, salsas por separado..."></textarea>
-                
-                <div class="opciones-entrega">
-                    <p style="margin-bottom: 10px; font-weight: bold; color: var(--primary-color);">Tipo de Entrega:</p>
-                    <label class="radio-label">
-                        <input type="radio" name="tipo_entrega" value="retiro" checked onchange="toggleDireccion()"> 🏃‍♂️ Retiro en el local
-                    </label>
-                    <label class="radio-label">
-                        <input type="radio" name="tipo_entrega" value="domicilio" onchange="toggleDireccion()"> 🛵 A domicilio
-                    </label>
-                    
-                    <input type="text" id="direccion-entrega" class="input-carrito" placeholder="Ingresa tu dirección exacta..." style="display: none; margin-top: 10px; margin-bottom: 0;">
-                </div>
-            </div>
-            
-            <div style="font-size: 1.4rem; font-weight: bold; text-align: right; border-top: 2px solid #333; padding-top: 15px; margin-top: 15px; color: white;">
-                Total: $<span id="total-precio">0</span>
-            </div>
-            
-            <button class="btn-accion" style="background:#25D366; color:white; font-size: 1.2rem; margin-top: 20px;" onclick="enviarPedidoWhatsApp()">Pedir por WhatsApp 📲</button>
-            <button class="btn-cerrar" onclick="cerrarModales()">Seguir Viendo el Menú</button>
-        </div>
-    </div>
-
     <footer id="contactos">
         <div class="footer-col">
-            <h2 style="color: var(--primary-color); font-size: 2rem; margin-bottom: 10px;">Tommy Burger</h2>
-            <p style="font-style: italic;">"Sabor que te hace volver"</p>
+            <h3>Tommy Burger</h3>
+            <p>El mejor sabor artesanal de Dosquebradas.</p>
         </div>
-        
         <div class="footer-col">
-            <h3>📍 Ubicación</h3>
-            <p>San Felix Playa Rica</p>
-            <p>Cra 7A 42 DA # Local 3 Casa 42</p>
-            <p>Dosquebradas, Risaralda</p>
-        </div>
-        
+            <h3>Contáctanos</h3>
+            <p>📍 San Felix Playa Rica, Dosquebradas</p>
+            <p>📱 Teléfono: +57 300 000 0000</p> </div>
         <div class="footer-col">
-            <h3>Pide a Domicilio</h3>
-            <p>Haz tu pedido rápido y fácil:</p>
-            <a href="https://wa.me/573127142755" target="_blank" class="social-btn">📲 WhatsApp: 312 714 2755</a>
-        </div>
+            <h3>Síguenos</h3>
+            <a href="#" class="social-btn">WhatsApp</a> </div>
     </footer>
 
     <script>
-        // --- NAVEGACIÓN Y MENÚ MÓVIL ---
+        // 1. Hace funcionar el menú de las 3 rayitas en celular
         function toggleMenu() {
-            document.getElementById('nav-links').classList.toggle('active');
-            document.getElementById('dropdown-menu').classList.remove('active');
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
         }
 
-        function cerrarMenuMovil() {
-            document.getElementById('nav-links').classList.remove('active');
-            document.getElementById('dropdown-menu').classList.remove('active');
-        }
-
+        // 2. Hace funcionar el submenú "Menú ▾" en celular
         function toggleDropdown(event) {
             if (window.innerWidth <= 850) {
-                event.preventDefault();
-                document.getElementById('dropdown-menu').classList.toggle('active');
+                event.preventDefault(); // Evita que la página salte hacia arriba
+                const dropdownMenu = document.getElementById('dropdown-menu');
+                dropdownMenu.classList.toggle('active');
             }
         }
 
-        function mostrarSeccion(seccion) {
-            document.getElementById('seccion-inicio').style.display = (seccion === 'inicio') ? 'block' : 'none';
-            document.getElementById('seccion-menu').style.display = (seccion === 'menu') ? 'block' : 'none';
-            window.scrollTo(0,0);
-            cerrarMenuMovil();
+        // 3. Cierra el menú automáticamente cuando tocas una opción (Inicio, Contacto, etc.)
+        function cerrarMenuMovil() {
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
         }
 
-        function irACategoria(id) {
-            mostrarSeccion('menu');
+        // 4. Navegar entre "Inicio" y "Menú"
+        function mostrarSeccion(seccionId) {
+            // Ocultar todas las secciones principales
+            document.getElementById('seccion-inicio').style.display = 'none';
+            document.getElementById('seccion-menu').style.display = 'none';
+            
+            // Mostrar la que pedimos
+            document.getElementById('seccion-' + seccionId).style.display = 'block';
+            
+            // Cerrar el menú del celular al cambiar de sección
+            cerrarMenuMovil();
+            
+            // Subir al principio de la página
+            window.scrollTo(0, 0);
+        }
+
+        // 5. Baja automáticamente a la categoría que tocas (ej: Hamburguesas)
+        function irACategoria(categoriaId) {
+            mostrarSeccion('menu'); // Primero nos aseguramos de estar en la pantalla del menú
+            
+            // Esperamos un momentito a que cargue la pantalla y bajamos a la categoría
             setTimeout(() => {
-                document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+                const elemento = document.getElementById(categoriaId);
+                if (elemento) {
+                    elemento.scrollIntoView({ behavior: 'smooth' });
+                }
             }, 100);
+            
             cerrarMenuMovil();
-        }
-
-        // --- LÓGICA DE ENTREGA (DOMICILIO / RETIRO) ---
-        function toggleDireccion() {
-            let tipo = document.querySelector('input[name="tipo_entrega"]:checked').value;
-            let inputDireccion = document.getElementById('direccion-entrega');
-            if (tipo === 'domicilio') {
-                inputDireccion.style.display = 'block';
-            } else {
-                inputDireccion.style.display = 'none';
-            }
-        }
-
-        // --- INTERACTIVIDAD DEL CARRITO Y PRODUCTOS ---
-        let carrito = [];
-
-        function mostrarDetalle(nombre, descripcion, precio, imagen) {
-            document.getElementById('img-detalle').src = imagen;
-            document.getElementById('titulo-detalle').innerText = nombre;
-            document.getElementById('desc-detalle').innerText = descripcion;
-            document.getElementById('precio-detalle').innerText = `$${precio.toLocaleString('es-CO')}`;
-            
-            let btnAgregar = document.getElementById('btn-agregar');
-            btnAgregar.onclick = function() {
-                agregarAlCarrito(nombre, precio);
-                cerrarModales();
-            };
-            
-            document.getElementById('modal-detalle').style.display = 'block';
-        }
-
-        function cerrarModales() {
-            document.getElementById('modal-detalle').style.display = 'none';
-            document.getElementById('modal-carrito').style.display = 'none';
-        }
-
-        function agregarAlCarrito(nombre, precio) {
-            let producto = carrito.find(item => item.nombre === nombre);
-            if (producto) {
-                producto.cantidad++;
-            } else {
-                carrito.push({ nombre: nombre, precio: precio, quantity: 1, cantidad: 1 });
-            }
-            actualizarContador();
-            mostrarToast(`¡${nombre} agregado!`);
-        }
-
-        function actualizarContador() {
-            let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
-            document.getElementById('contador-carrito').innerText = totalItems;
-        }
-
-        function abrirCarrito() {
-            let lista = document.getElementById('lista-carrito');
-            lista.innerHTML = '';
-            let total = 0;
-            
-            if (carrito.length === 0) {
-                lista.innerHTML = '<p style="text-align:center; color:#aaa; padding: 20px;">Tu carrito está vacío</p>';
-            } else {
-                carrito.forEach((item, index) => {
-                    let subtotal = item.precio * item.cantidad;
-                    total += subtotal;
-                    lista.innerHTML += `
-                        <div class="cart-item">
-                            <div class="cart-info">
-                                <div style="font-weight:bold;">${item.nombre}</div>
-                                <div style="color:var(--primary-color);">$${subtotal.toLocaleString('es-CO')}</div>
-                            </div>
-                            <div class="cart-controls">
-                                <button class="btn-qty" onclick="cambiarCantidad(${index}, -1)">-</button>
-                                <span class="qty-number">${item.cantidad}</span>
-                                <button class="btn-qty" onclick="cambiarCantidad(${index}, 1)">+</button>
-                            </div>
-                        </div>
-                    `;
-                });
-            }
-            document.getElementById('total-precio').innerText = total.toLocaleString('es-CO');
-            document.getElementById('modal-carrito').style.display = 'block';
-        }
-
-        function cambiarCantidad(index, cambio) {
-            carrito[index].cantidad += cambio;
-            if (carrito[index].cantidad <= 0) {
-                carrito.splice(index, 1);
-            }
-            actualizarContador();
-            abrirCarrito();
-        }
-
-        function mostrarToast(mensaje) {
-            let container = document.getElementById('toast-container');
-            let toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = `✅ ${mensaje}`;
-            container.appendChild(toast);
-            setTimeout(() => { toast.remove(); }, 3000);
-        }
-
-        function enviarPedidoWhatsApp() {
-            if (carrito.length === 0) {
-                alert('El carrito está vacío, añade productos antes de pedir.');
-                return;
-            }
-            let tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked').value;
-            let notas = document.getElementById('notas-cocina').value;
-            let direccion = document.getElementById('direccion-entrega').value;
-            
-            let mensaje = `Nuevo Pedido - Tommy Burger\n\n`;
-            let total = 0;
-            
-            carrito.forEach(item => {
-                let subtotal = item.precio * item.cantidad;
-                mensaje += `• ${item.cantidad}x ${item.nombre} ($${subtotal.toLocaleString('es-CO')})\n`;
-                total += subtotal;
-            });
-            
-            mensaje += `\nTotal: $${total.toLocaleString('es-CO')}\n`;
-            mensaje += `Entrega: ${tipoEntrega === 'domicilio' ? ' Domicilio' : ' Retiro en local'}\n`;
-            
-            if (tipoEntrega === 'domicilio' && direccion.trim() !== '') {
-                mensaje += `*Dirección:* ${direccion}\n`;
-            } else if (tipoEntrega === 'domicilio') {
-                alert('Por favor escribe tu dirección exacta.');
-                return;
-            }
-            
-            if (notas.trim() !== '') {
-                mensaje += `*Notas de cocina:* ${notas}\n`;
-            }
-            
-            let url = `https://wa.me/573127142755?text=${encodeURIComponent(mensaje)}`;
-            window.open(url, '_blank');
-        }
-
-        window.onclick = function(event) {
-            let modalDetalle = document.getElementById('modal-detalle');
-            let modalCarrito = document.getElementById('modal-carrito');
-            if (event.target == modalDetalle || event.target == modalCarrito) {
-                cerrarModales();
-            }
         }
     </script>
 </body>
