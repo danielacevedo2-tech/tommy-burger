@@ -15,7 +15,64 @@
             --text-light: #f5f5f5;
             --border-color: #2a2a35;
         }
+<script>
+        // 1. Hace funcionar el menú de las 3 rayitas en celular
+        function toggleMenu() {
+            const navLinks = document.getElementById('nav-links');
+            navLinks.classList.toggle('active');
+        }
 
+        // 2. Hace funcionar el submenú "Menú ▾" en celular
+        function toggleDropdown(event) {
+            // Solo lo activamos al hacer clic si estamos en celular (ancho menor a 850px)
+            if (window.innerWidth <= 850) {
+                event.preventDefault(); // Evita que la página salte hacia arriba
+                const dropdownMenu = document.getElementById('dropdown-menu');
+                dropdownMenu.classList.toggle('active');
+            }
+        }
+
+        // 3. Cierra el menú automáticamente cuando tocas una opción (Inicio, Contacto, etc.)
+        function cerrarMenuMovil() {
+            const navLinks = document.getElementById('nav-links');
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        }
+
+        // 4. Esta es la función que ya tenías para navegar entre "Inicio" y "Menú"
+        function mostrarSeccion(seccionId) {
+            // Ocultar todas las secciones principales
+            document.getElementById('seccion-inicio').style.display = 'none';
+            document.getElementById('seccion-menu').style.display = 'none';
+            
+            // Mostrar la que pedimos
+            document.getElementById('seccion-' + seccionId).style.display = 'block';
+            
+            // Cerrar el menú del celular al cambiar de sección
+            cerrarMenuMovil();
+            
+            // Subir al principio de la página
+            window.scrollTo(0, 0);
+        }
+
+        // 5. Esta función baja automáticamente a la categoría que tocas (ej: Hamburguesas)
+        function irACategoria(categoriaId) {
+            mostrarSeccion('menu'); // Primero nos aseguramos de estar en la pantalla del menú
+            
+            // Esperamos un momentito a que cargue la pantalla y bajamos a la categoría
+            setTimeout(() => {
+                const elemento = document.getElementById(categoriaId);
+                if (elemento) {
+                    elemento.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+            
+            cerrarMenuMovil();
+        }
+    </script>
+</body>
+</html>
         html { scroll-padding-top: 100px; }
         
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; scroll-behavior: smooth; }
