@@ -432,6 +432,148 @@
             }, 150);
             cerrarMenuMovil();
         }
+        
+        // --- LÓGICA DE ENTREGA (DOMICILIO / RETIRO) ---
+        function toggleDireccion() {
+            let tipo = document.querySelector('input[name="tipo_entrega"]:checked').value;
+            let inputDireccion = document.getElementById('direccion-entrega');
+            if (tipo === 'domicilio') {
+                inputDireccion.style.display = 'block';
+            } else {
+                inputDireccion.style.display = 'none';
+            }
+        }
+
+        // --- INTERACTIVIDAD DEL CARRITO Y PRODUCTOS ---
+        let carrito = [];
+
+        function mostrarDetalle(nombre, descripcion, precio, imagen) {
+            document.getElementById('img-detalle').src = imagen;
+            document.getElementById('titulo-detalle').innerText = nombre;
+            document.getElementById('desc-detalle').innerText = descripcion;
+            document.getElementById('precio-detalle').innerText = `$${precio.toLocaleString('es-CO')}`;
+            
+            let btnAgregar = document.getElementById('btn-agregar');
+            btnAgregar.onclick = function() {
+                agregarAlCarrito(nombre, precio);
+                cerrarModales();
+            };
+            
+            document.getElementById('modal-detalle').style.display = 'block';
+        }
+
+        function cerrarModales() {
+            document.getElementById('modal-detalle').style.display = 'none';
+            document.getElementById('modal-carrito').style.display = 'none';
+        }
+
+        function agregarAlCarrito(nombre, precio) {
+            let producto = carrito.find(item => item.nombre === nombre);
+            if (producto) {
+                producto.cantidad++;
+            } else {
+                carrito.push({ nombre: nombre, precio: precio, quantity: 1, cantidad: 1 });
+            }
+            actualizarContador();
+            mostrarToast(`¡${nombre} agregado!`);
+        }
+
+        function actualizarContador() {
+            let totalItems = carrito.reduce((sum, item) => sum + item.cantidad, 0);
+            document.getElementById('contador-carrito').innerText = totalItems;
+        }
+
+        function abrirCarrito() {
+            let lista = document.getElementById('lista-carrito');
+            lista.innerHTML = '';
+            let total = 0;
+            
+            if (carrito.length === 0) {
+                lista.innerHTML = '<p style="text-align:center; color:#aaa; padding: 20px;">Tu carrito está vacío</p>';
+            } else {
+                carrito.forEach((item, index) => {
+                    let subtotal = item.precio * item.cantidad;
+                    total += subtotal;
+                    lista.innerHTML += `
+                        <div class="cart-item">
+                            <div class="cart-info">
+                                <div style="font-weight:bold;">${item.nombre}</div>
+                                <div style="color:var(--primary-color);">$${subtotal.toLocaleString('es-CO')}</div>
+                            </div>
+                            <div class="cart-controls">
+                                <button class="btn-qty" onclick="cambiarCantidad(${index}, -1)">-</button>
+                                <span class="qty-number">${item.cantidad}</span>
+                                <button class="btn-qty" onclick="cambiarCantidad(${index}, 1)">+</button>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            document.getElementById('total-precio').innerText = total.toLocaleString('es-CO');
+            document.getElementById('modal-carrito').style.display = 'block';
+        }
+
+        function cambiarCantidad(index, cambio) {
+            carrito[index].cantidad += cambio;
+            if (carrito[index].cantidad <= 0) {
+                carrito.splice(index, 1);
+            }
+            actualizarContador();
+            abrirCarrito();
+        }
+
+        function mostrarToast(mensaje) {
+            let container = document.getElementById('toast-container');
+            let toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `✅ ${mensaje}`;
+            container.appendChild(toast);
+            setTimeout(() => { toast.remove(); }, 3000);
+        }
+
+        function enviarPedidoWhatsApp() {
+            if (carrito.length === 0) {
+                alert('El carrito está vacío, añade productos antes de pedir.');
+                return;
+            }
+            let tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked').value;
+            let notas = document.getElementById('notas-cocina').value;
+            let direccion = document.getElementById('direccion-entrega').value;
+            
+            let mensaje = `Nuevo Pedido - Tommy Burger\n\n`;
+            let total = 0;
+            
+            carrito.forEach(item => {
+                let subtotal = item.precio * item.cantidad;
+                mensaje += `• ${item.cantidad}x ${item.nombre} ($${subtotal.toLocaleString('es-CO')})\n`;
+                total += subtotal;
+            });
+            
+            mensaje += `\nTotal: $${total.toLocaleString('es-CO')}\n`;
+            mensaje += `Entrega: ${tipoEntrega === 'domicilio' ? ' Domicilio' : ' Retiro en local'}\n`;
+            
+            if (tipoEntrega === 'domicilio' && direccion.trim() !== '') {
+                mensaje += `*Dirección:* ${direccion}\n`;
+            } else if (tipoEntrega === 'domicilio') {
+                alert('Por favor escribe tu dirección exacta.');
+                return;
+            }
+            
+            if (notas.trim() !== '') {
+                mensaje += `*Notas de cocina:* ${notas}\n`;
+            }
+            
+            let url = `https://wa.me/573127142755?text=${encodeURIComponent(mensaje)}`;
+            window.open(url, '_blank');
+        }
+
+        window.onclick = function(event) {
+            let modalDetalle = document.getElementById('modal-detalle');
+            let modalCarrito = document.getElementById('modal-carrito');
+            if (event.target == modalDetalle || event.target == modalCarrito) {
+                cerrarModales();
+            }
+        }
     </script>
 </body>
 </html>
