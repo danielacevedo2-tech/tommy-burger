@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,9 +11,9 @@
         :root {
             --primary-color: #d4af37; /* Dorado */
             --primary-dark: #b5952f;
-            --bg-outer: #0a0a0c; /* Fondo externo profundo */
-            --steam-bg: rgba(22, 22, 26, 0.8); /* Fondo de la caja central */
-            --card-bg: #1b1b22; /* Cajas internas */
+            --bg-outer: #0a0a0c; 
+            --steam-bg: rgba(22, 22, 26, 0.8); 
+            --card-bg: #1b1b22; 
             --text-light: #f5f5f5;
             --border-color: #2a2a35;
         }
@@ -39,14 +41,12 @@
         .nav-links a, .dropbtn { color: var(--text-light); text-decoration: none; margin-left: 20px; font-weight: bold; cursor: pointer; transition: color 0.3s; }
         .nav-links a:hover, .dropbtn:hover { color: var(--primary-color); }
 
-        /* Menú Desplegable (Escritorio) */
         .dropdown { position: relative; display: inline-block; margin-left: 20px; }
         .dropdown-content { display: none; position: absolute; background-color: var(--card-bg); min-width: 200px; box-shadow: 0px 8px 16px rgba(0,0,0,0.5); z-index: 1; border-radius: 8px; top: 100%; border: 1px solid var(--border-color); overflow: hidden; }
         .dropdown-content a { color: white; padding: 12px 16px; display: block; text-decoration: none; border-bottom: 1px solid var(--border-color); margin-left: 0; }
         .dropdown-content a:hover { background-color: #2a2a2a; color: var(--primary-color); }
         .dropdown:hover .dropdown-content { display: block; }
 
-        /* Contenedor de Iconos */
         .icon-container { display: flex; align-items: center; gap: 20px; }
         .cart-container { position: relative; cursor: pointer; font-size: 1.8rem; transition: transform 0.2s; background: rgba(255,255,255,0.1); padding: 5px 10px; border-radius: 8px; }
         .cart-container:hover { transform: scale(1.1); }
@@ -54,32 +54,15 @@
         .menu-toggle { display: none; font-size: 2rem; cursor: pointer; color: var(--primary-color); }
 
         /* --- CONTENEDOR CENTRAL ESTILO STEAM --- */
-        .steam-container {
-            max-width: 1050px;
-            margin: 40px auto;
-            background-color: var(--steam-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 5px;
-            padding: 40px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8);
-        }
+        .steam-container { max-width: 1050px; margin: 40px auto; background-color: var(--steam-bg); border: 1px solid var(--border-color); border-radius: 5px; padding: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.8); }
 
         /* --- SECCIONES --- */
         #seccion-inicio, #seccion-menu { padding: 10px; }
-        
         .hero-text { text-align: center; margin-bottom: 40px; }
         .hero-text h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
         .hero-text p { font-size: 1.1rem; color: #ccc; margin-bottom: 25px; }
 
-        .logo-central {
-            width: auto !important;
-            max-width: 300px !important;
-            max-height: auto !important;
-            margin: 0 auto;
-            border: none !important;
-        }
-
-        /* GALERÍA INICIO */
+        .logo-central { width: auto !important; max-width: 300px !important; margin: 0 auto; border: none !important; }
         .hero-gallery { display: flex; flex-direction: column; gap: 40px; margin-bottom: 50px; }
         .gallery-item { text-align: center; }
         .gallery-item img { width: 100%; max-height: 450px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); }
@@ -88,53 +71,77 @@
 
         .home-section-title { text-align: center; color: var(--primary-color); font-size: 2rem; margin: 40px 0 20px; text-transform: uppercase; letter-spacing: 2px; }
         
-        /* Grid de Productos */
         .top-sellers-grid, .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin-bottom: 50px; }
-        
         .menu-item { background-color: var(--card-bg); border-radius: 8px; padding: 20px; border: 1px solid var(--border-color); cursor: pointer; transition: all 0.25s ease; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; }
         .menu-item:hover { transform: translateY(-4px); border-color: var(--primary-color); box-shadow: 0 8px 20px rgba(212, 175, 55, 0.15); }
         .menu-item-img { width: 100%; height: 180px; object-fit: cover; border-radius: 6px; margin-bottom: 15px; border: 1px solid var(--border-color); }
-        
         .item-title { font-size: 1.25rem; color: var(--primary-color); font-weight: bold; margin-bottom: 10px; }
         .item-price { font-size: 1.1rem; font-weight: bold; margin-top: auto; color: #000; background: var(--primary-color); padding: 5px 18px; border-radius: 20px; }
 
-        /* Cajas de Información inferiores */
         .info-container { display: flex; flex-wrap: wrap; gap: 30px; text-align: left; margin-top: 20px; }
         .info-box { flex: 1; min-width: 300px; background: var(--card-bg); padding: 30px; border-radius: 8px; border: 1px solid var(--border-color); }
         .info-box h3 { color: var(--primary-color); margin-bottom: 20px; font-size: 1.5rem; text-align: center; border-bottom: 1px dashed #444; padding-bottom: 10px; }
-        
         .horarios-list { list-style: none; padding: 0; font-size: 1.1rem; }
         .horarios-list li { display: flex; justify-content: space-between; border-bottom: 1px solid #333; padding: 12px 0; }
         .horarios-list li:last-child { border-bottom: none; }
         .map-iframe { width: 100%; height: 280px; border: none; border-radius: 8px; margin-top: 10px; border: 1px solid #444; }
 
-        /* --- SECCIÓN DEL MENÚ --- */
         #seccion-menu { display: none; }
         .menu-banner { text-align: center; margin-bottom: 30px; }
         .menu-banner img { width: 100%; max-height: 380px; object-fit: cover; border-radius: 8px; border: 1px solid var(--border-color); }
         .menu-section { padding: 30px 0; }
         .category-title { color: var(--primary-color); font-size: 2rem; margin-bottom: 25px; border-bottom: 2px solid var(--primary-color); padding-bottom: 8px; display: inline-block; }
 
-        /* --- RESPONSIVE / ADAPTACIÓN A MÓVILES (¡AQUÍ ESTÁ LA CORRECCIÓN!) --- */
-        @media (max-width: 1100px) {
-            .steam-container { margin: 15px; padding: 20px; }
-        }
+        /* --- MODALES (VENTANAS EMERGENTES) --- */
+        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.85); backdrop-filter: blur(4px); justify-content: center; align-items: center; overflow-y: auto; padding: 20px; }
+        .modal-content { background-color: var(--card-bg); border: 1px solid var(--primary-color); border-radius: 10px; padding: 20px; width: 90%; max-width: 420px; text-align: center; box-shadow: 0 10px 30px rgba(0,0,0,0.9); animation: fadeIn 0.3s ease; max-height: 90vh; overflow-y: auto; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+        
+        .modal-content img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 15px; }
+        .modal-content h3 { color: var(--primary-color); font-size: 1.5rem; margin-bottom: 10px; text-align: center; }
+        .modal-content p { color: #ccc; font-size: 0.95rem; margin-bottom: 15px; line-height: 1.4; }
+        
+        .modal-price, .modal-total-display { font-size: 1.2rem; font-weight: bold; color: white; background: #222; display: inline-block; padding: 8px 20px; border-radius: 8px; border: 1px solid #444; margin-bottom: 20px; }
+        .btn-add-cart, .btn-close-modal { width: 100%; padding: 12px; border-radius: 5px; font-weight: bold; cursor: pointer; transition: 0.2s; border: none; font-size: 1rem; margin-bottom: 10px; }
+        .btn-add-cart { background-color: var(--primary-color); color: #000; }
+        .btn-add-cart:hover { background-color: var(--primary-dark); transform: scale(1.02); }
+        .btn-close-modal { background-color: transparent; color: white; border: 1px solid #555; }
+        .btn-close-modal:hover { background-color: #333; }
 
+        /* --- ELEMENTOS EXCLUSIVOS DEL CARRITO --- */
+        .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--border-color); text-align: left; }
+        .cart-info { flex: 1; }
+        .cart-controls { display: flex; align-items: center; gap: 10px; }
+        .btn-qty { background: #333; color: white; border: 1px solid #555; padding: 2px 8px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        .btn-qty:hover { background: #444; }
+        .qty-number { font-weight: bold; min-width: 20px; text-align: center; }
+
+        .cart-option-title { color: var(--primary-color); font-weight: bold; margin: 15px 0 5px; text-align: left; font-size: 0.95rem; }
+        .delivery-options { display: flex; flex-direction: column; gap: 8px; text-align: left; margin-bottom: 15px; }
+        .delivery-options label { display: flex; align-items: center; gap: 8px; cursor: pointer; color: #ccc; }
+        .cart-textarea { width: 100%; background: #111; border: 1px solid var(--border-color); color: white; padding: 10px; border-radius: 6px; resize: none; margin-bottom: 10px; font-size: 0.9rem; }
+        .cart-input { width: 100%; background: #111; border: 1px solid var(--border-color); color: white; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 0.9rem; display: none; }
+
+        .modal-total { font-size: 1.3rem; font-weight: bold; text-align: right; margin: 15px 0; color: white; }
+        .btn-whatsapp { width: 100%; padding: 14px; background-color: #25D366; color: white; border: none; border-radius: 6px; font-weight: bold; font-size: 1.05rem; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 8px; margin-bottom: 10px; transition: background 0.2s; }
+        .btn-whatsapp:hover { background-color: #1ebd56; }
+
+        /* --- NOTIFICACIONES TOAST --- */
+        #toast-container { position: fixed; bottom: 20px; right: 20px; z-index: 3000; display: flex; flex-direction: column; gap: 10px; }
+        .toast { background: #25D366; color: white; padding: 12px 24px; border-radius: 6px; font-weight: bold; box-shadow: 0 5px 15px rgba(0,0,0,0.3); animation: slideIn 0.3s ease; }
+        @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) { .steam-container { margin: 15px; padding: 20px; } }
         @media (max-width: 850px) {
             .menu-toggle { display: block; }
-            .nav-links { 
-                display: none; flex-direction: column; position: absolute; top: 100%; left: 0; 
-                width: 100%; background-color: #000; border-bottom: 2px solid var(--primary-color); padding: 10px 0;
-            }
+            .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; width: 100%; background-color: #000; border-bottom: 2px solid var(--primary-color); padding: 10px 0; }
             .nav-links.active { display: flex; }
             .nav-links a, .dropdown { margin: 15px 0; font-size: 1.2rem; text-align: center; width: 100%; }
-            
-            /* Solución al problema del menú en móvil */
             .dropdown-content { position: static; box-shadow: none; display: none !important; border: none; background: #111; }
             .dropdown.active .dropdown-content { display: block !important; }
         }
 
-        /* --- PIE DE PÁGINA --- */
         footer { background-color: #000; color: white; padding: 50px 20px; border-top: 3px solid var(--primary-color); margin-top: 40px; display: flex; flex-wrap: wrap; justify-content: space-around; gap: 30px; text-align: center; }
         .footer-col { flex: 1; min-width: 250px; }
         .footer-col h3 { color: var(--primary-color); margin-bottom: 15px; font-size: 1.5rem; }
@@ -146,7 +153,7 @@
 
     <header>
         <div class="logo-nav" onclick="mostrarSeccion('inicio')">
-            <img src="https://i.postimg.cc/tTQxdjyw/logo2.jpg?w=500" alt="Logo Tommy Burger" onerror="this.src='https://via.placeholder.com/150x60?text=Tommy+Burger'">
+            <img src="https://i.postimg.cc/tTQxdjyw/logo2.jpg?w=500" alt="Logo Tommy Burger">
         </div>
         
         <div class="nav-links" id="nav-links">
@@ -168,78 +175,53 @@
         </div>
 
         <div class="icon-container">
-            <div class="cart-container" onclick="alert('El carrito estará disponible pronto')">
+            <div class="cart-container" onclick="abrirCarrito()">
                 🛒 <span class="cart-count" id="contador-carrito">0</span>
             </div>
             <div class="menu-toggle" onclick="toggleMenu()">☰</div>
         </div>
     </header>
 
-    <div id="toast-container"></div>
-
     <section id="seccion-inicio">
         <div class="steam-container">
-            
             <div class="hero-text">
                 <h2>¡El verdadero sabor de Dosquebradas! 🍔🔥</h2>
-                <p>¿Antojo de algo brutal? En <strong>Tommy Burger</strong> no solo preparamos comida, creamos experiencias para chuparse los dedos. Disfruta de nuestras jugosas hamburguesas artesanales, salchipapas cargadas hasta el borde, perros calientes explosivos y arepas que te dejarán sin palabras. <br><br>Todo preparado al instante, con ingredientes frescos y el toque secreto de la casa.</p>
-                <button onclick="mostrarSeccion('menu')" style="padding: 15px 30px; font-size: 1.1rem; font-weight: bold; background: var(--primary-color); color: #000; border: none; cursor: pointer; border-radius: 30px; transition: transform 0.3s; box-shadow: 0 4px 10px rgba(212, 175, 55, 0.4);">¡Ver Todo El Menú!</button>
+                <p>¿Antojo de algo brutal? En <strong>Tommy Burger</strong> creamos experiencias para chuparse los dedos.</p>
+                <button onclick="mostrarSeccion('menu')" style="padding: 15px 30px; font-size: 1.1rem; font-weight: bold; background: var(--primary-color); color: #000; border: none; cursor: pointer; border-radius: 30px;">¡Ver Todo El Menú!</button>
             </div>
 
             <div class="hero-gallery">
                 <div style="text-align: center; margin-bottom: 20px;">
                     <img class="logo-central" src="https://i.postimg.cc/tTQxdjyw/logo2.jpg?w=1000" alt="Logo Tommy Burger">
                 </div>
-
                 <div class="gallery-item">
-                    <img src="https://i.postimg.cc/gk82DMPV/local.png?w=1000" alt="Nuestro Local Tommy Burger">
+                    <img src="https://i.postimg.cc/gk82DMPV/local.png?w=1000" alt="Nuestro Local">
                     <h3>¡Visita Nuestras Instalaciones!</h3>
-                    <p>Un ambiente genial para disfrutar con amigos y familia.</p>
                 </div>
             </div>
 
-           
             <h2 class="home-section-title">⭐ Los Más Pedidos</h2>
             <div class="top-sellers-grid">
-                <div class="menu-item" onclick="mostrarDetalle('Hamburguesa Especial', 'Para los que quieren más. Jugosa carne artesanal combinada con deliciosa carne desmechada, queso y vegetales frescos.', 23000, 'https://i.postimg.cc/tJqWXpHB/9.jpg?w=500')">
-                    <img class="menu-item-img" src="https://i.postimg.cc/6qb2sc0r/hamburgesa-especial.png?w=500" alt="Hamburguesa Especial">
+                <div class="menu-item" onclick="mostrarDetalle('Hamburguesa Especial', 'Jugosa carne artesanal combinada con deliciosa carne desmechada, queso y vegetales.', 23000, 'https://i.postimg.cc/6qb2sc0r/hamburgesa-especial.png?w=500')">
+                    <img class="menu-item-img" src="https://i.postimg.cc/6qb2sc0r/hamburgesa-especial.png?w=500">
                     <span class="item-title">Hamburguesa Especial</span>
                     <span class="item-price">$23.000</span>
                 </div>
-                <div class="menu-item" onclick="mostrarDetalle('Salchipapa Especial', 'Papas, salchicha, queso derretido, tocineta y ripio de papa.', 19000, 'https://i.postimg.cc/g0mcgkBH/Salchipapa-especial.png?w=500')">
-                    <img class="menu-item-img" src="https://i.postimg.cc/g0mcgkBH/Salchipapa-especial.png?w=500" alt="Salchipapa Especial">
+                <div class="menu-item" onclick="mostrarDetalle('Salchipapa Especial', 'Salchicha, papa a la francesa, papa ripio, queso cuajada, queso mozzarella, maicitos y tocineta.', 19000, 'https://i.postimg.cc/g0mcgkBH/Salchipapa-especial.png?w=500')">
+                    <img class="menu-item-img" src="https://i.postimg.cc/g0mcgkBH/Salchipapa-especial.png?w=500">
                     <span class="item-title">Salchipapa Especial</span>
                     <span class="item-price">$19.000</span>
                 </div>
-                <div class="menu-item" onclick="mostrarDetalle('Arepa Burguer (Combo)', 'Nuestra espectacular Arepa Burguer acompañada de bebida y papas.', 23000, 'https://i.postimg.cc/R0NNfM93/Whats-App-Image-2026-04-28-at-11-47-56-PM.jpg?w=500')">
-                    <img class="menu-item-img" src="https://i.postimg.cc/8cbwRL4F/combo-arepa.png?w=500" alt="Arepa Burguer Combo">
+                <div class="menu-item" onclick="mostrarDetalle('Arepa Burguer Combo', 'Arepa Burguer acompañada de papas doradas y gaseosa Postobón bien fría.', 23000, 'https://i.postimg.cc/8cbwRL4F/combo-arepa.png?w=500')">
+                    <img class="menu-item-img" src="https://i.postimg.cc/8cbwRL4F/combo-arepa.png?w=500">
                     <span class="item-title">Arepa Burguer (Combo)</span>
                     <span class="item-price">$23.000</span>
                 </div>
             </div>
-
-            <div class="info-container">
-                <div class="info-box">
-                    <h3>⏰ Horarios de Atención</h3>
-                    <ul class="horarios-list">
-                        <li><span>Lunes a Jueves:</span> <span style="color: #e50000; font-weight: bold;">Cerrado</span></li>
-                        <li><span>Viernes y Sábado:</span> <span>5:00 PM - 11:00 PM</span></li>
-                        <li><span>Domingos y Festivos:</span> <span>5:00 PM - 11:00 PM</span></li>
-                    </ul>
-                    <p style="margin-top: 20px; font-size: 0.9rem; color: #aaa; text-align: center;">*Horarios sujetos a cambios en días festivos especiales.</p>
-                </div>
-                
-                 <div class="info-box">
-                    <h3>🗺️ Encuéntranos Aquí</h3>
-                    <p style="font-size: 0.95rem; margin-bottom: 10px; color: #ddd;">San Felix Playa Rica, Dosquebradas.</p>
-                    <iframe class="map-iframe" src="https://maps.google.com/maps?q=4.841115,-75.6751684&hl=es&z=17&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
-
         </div>
     </section>
 
-    <section id="seccion-menu">
+      <section id="seccion-menu">
         <div class="steam-container">
             
             <div class="menu-banner">
@@ -249,22 +231,22 @@
             <section id="hamburguesas" class="menu-section">
                 <h2 class="category-title">Hamburguesas</h2>
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Hamburguesa Tradicional', 'El clásico que nunca falla. Pan brioche, jugosa carne artesanal, queso mozarela, tocineta,lechuga fresca, tomate, cebolla caramelizada y nuestras salsas de la casa.', 19000, 'https://i.postimg.cc/J4Tcmcnq/hamburgesa-tradicional.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/J4Tcmcnq/hamburgesa-tradicional.png?w=500" alt="Hamburguesa Tradicional">
                         <span class="item-title">Hamburguesa Tradicional</span>
                         <span class="item-price">$19.000</span>
                     </div>
-                    <div class="menu-item">
-                        <img class="menu-item-img" src="https://i.postimg.cc/6qb2sc0r/hamburgesa-especial.png?w=500" alt="Hamburguesa Especial">
-                        <span class="item-title">Hamburguesa Especial</span>
-                        <span class="item-price">$23.000</span>            
+                    <div class="menu-item" onclick="mostrarDetalle('Hamburguesa Especial', 'Para los que quieren más. Jugosa carne artesanal combinada con deliciosa carne desmechada, queso y vegetales frescos.', 23000, 'https://i.postimg.cc/6qb2sc0r/hamburgesa-especial.png?w=500')">
+                    <img class="menu-item-img" src="https://i.postimg.cc/6qb2sc0r/hamburgesa-especial.png?w=500" alt="Hamburguesa Especial">
+                    <span class="item-title">Hamburguesa Especial</span>
+                    <span class="item-price">$23.000</span>            
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Combo Hamburguesa Tradicional', 'La experiencia completa: Nuestra Hamburguesa Tradicional acompañada de papas a la francesa crujientes y una gaseosa refrescante.', 26000, 'https://i.postimg.cc/BvwnnbFB/hamburguesa-sencilla-combo.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/BvwnnbFB/hamburguesa-sencilla-combo.png?w=500" alt="Combo Hamburguesa Tradicional">
                         <span class="item-title">Combo Hamburguesa Tradicional</span>
                         <span class="item-price">$26.000</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Combo Especial Doble', 'Doble sabor, doble placer. Hamburguesa con doble carne, porción de papas y gaseosa. ¡Solo para valientes!', 30000, 'https://i.postimg.cc/FzXmYLH8/amburguesa-especial-combo.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/FzXmYLH8/amburguesa-especial-combo.png?w=500" alt="Combo Especial Doble">
                         <span class="item-title">Combo Especial Doble</span>
                         <span class="item-price">$30.000</span>
@@ -275,17 +257,17 @@
             <section id="mini" class="menu-section">
                 <h2 class="category-title">Mini Hamburguesas</h2>
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Mini Hamburguesas x6', 'Seis deliciosas mini hamburguesas perfectas para compartir (o comértelas todas tú).', 28000, 'https://i.postimg.cc/MZmTNLQd/Mini-hamburguesas.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/MZmTNLQd/Mini-hamburguesas.png?w=500" alt="Mini Hamburguesas x6">
                         <span class="item-title">Mini Hamburguesas x6</span>
                         <span class="item-price">$28.000</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Mini Hamburguesas con Tocineta x6', 'Nuestras famosas mini hamburguesas pero coronadas con tocineta crujiente.', 30000, 'https://i.postimg.cc/zXM1cwxm/Mini-hamburguesas-con-tosineta.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/zXM1cwxm/Mini-hamburguesas-con-tosineta.png?w=500" alt="Mini Hamburguesas Tocineta">
                         <span class="item-title">Mini Hamburguesas con Tocineta x6</span>
                         <span class="item-price">$30.000</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Mini Hamburguesa Tocineta y Desmechada', 'Una explosión de sabor en formato pequeño. Carne, tocineta y carne desmechada.', 33000, 'https://i.postimg.cc/NGChK7qM/Mini-hamburguesas-con-tosineta-y-carne-desmechada.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/NGChK7qM/Mini-hamburguesas-con-tosineta-y-carne-desmechada.png?w=500" alt="Mini Completa">
                         <span class="item-title">Mini Tocineta y Desmechada x6</span>
                         <span class="item-price">$33.000</span>
@@ -296,17 +278,17 @@
             <section id="salchipapas" class="menu-section">
                 <h2 class="category-title">Salchipapas</h2>
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Salchipapa Pequeña', 'Papas a la francesa doradas, salchicha picada y nuestras salsas.', 14000, 'https://i.postimg.cc/Kv8nHxCm/Salchipapa-pequena.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/Kv8nHxCm/Salchipapa-pequena.png?w=500" alt="Salchipapa Pequeña">
                         <span class="item-title">Salchipapa Pequeña</span>
                         <span class="item-price">$14.000</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Salchipapa Especial', 'Papas, salchicha, queso derretido, tocineta y ripio de papa.', 19000, 'https://i.postimg.cc/g0mcgkBH/Salchipapa-especial.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/g0mcgkBH/Salchipapa-especial.png?w=500" alt="Salchipapa Especial">
                         <span class="item-title">Salchipapa Especial</span>
                         <span class="item-price">$19.000</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Salchipapa Especial Combo', 'Nuestra salchipapa especial acompañada de tu bebida favorita.', 21000, 'https://i.postimg.cc/kg19vFKQ/Combo-salchipapa-especial.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/kg19vFKQ/Combo-salchipapa-especial.png?w=500" alt="Salchipapa Combo">
                         <span class="item-title">Salchipapa Especial Combo</span>
                         <span class="item-price">$21.000</span>
@@ -317,24 +299,24 @@
             <section id="perros" class="menu-section">
                 <h2 class="category-title">Perros Calientes</h2>
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Perro Sencillo', 'Pan suave, salchicha, ripio, salsas y queso rallado.', 14000, 'https://i.postimg.cc/pV67YG3x/perro-sencillo.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/pV67YG3x/perro-sencillo.png?w=500" alt="Perro Sencillo">
                         <span class="item-title">Perro Sencillo</span>
                         <span class="item-price">$14.000</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Perro Especial', 'Perro caliente cargado de ingredientes, tocineta, queso derretido, incluye bebida.', 19000, 'https://i.postimg.cc/9XYDHmMg/Perro-especial.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/9XYDHmMg/Perro-especial.png?w=500" alt="Perro Combo">
                         <span class="item-title">Perro Especial Combo</span>
                         <span class="item-price">$19.000</span>
                     </div>
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Perro Sencillo Doble', '¿Mucha hambre? Dos perros sencillos para calmar ese antojo.', 24000, 'https://i.postimg.cc/25G9q2n7/perro-sencillo-combo.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/25G9q2n7/perro-sencillo-combo.png?w=500" alt="Perro Doble">
                         <span class="item-title">Perro Sencillo Doble</span>
                         <span class="item-price">$28.000</span>            
                     </div>
-                    <div class="menu-item">
+                      <div class="menu-item" onclick="mostrarDetalle('Perro especial Doble combo', '¿Mucha hambre? Dos perros sencillos para calmar ese antojo.', 24000, 'https://i.postimg.cc/m2cWNj0k/Perro-especial-combo.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/m2cWNj0k/Perro-especial-combo.png?w=500" alt="Perro Doble">
-                        <span class="item-title">Perro Especial Doble</span>
+                        <span class="item-title">Perro Sencillo Doble</span>
                         <span class="item-price">$24.000</span>
                     </div>
                 </div>
@@ -343,20 +325,20 @@
             <section id="arepas" class="menu-section">
                 <h2 class="category-title">Especialidades de Arepa</h2>
                 <div class="menu-grid">
-                    <div class="menu-item">
+                    <div class="menu-item" onclick="mostrarDetalle('Arepa Burguer (Sola)', 'Cambiamos el pan por dos deliciosas arepas doradas, relleno de carne artesanal y vegetales.', 18000, 'https://i.postimg.cc/VLDbXK9f/arepa.png?w=500')">
                         <img class="menu-item-img" src="https://i.postimg.cc/VLDbXK9f/arepa.png?w=500" alt="Arepa Burguer Sola">
                         <span class="item-title">Arepa Burguer (Sola)</span>
                         <span class="item-price">$18.000</span>
                     </div>
-                    <div class="menu-item">
-                        <img class="menu-item-img" src="https://i.postimg.cc/8cbwRL4F/combo-arepa.png?w=500" alt="Arepa Burguer Combo">
-                        <span class="item-title">Arepa Burguer (Combo)</span>
-                        <span class="item-price">$23.000</span>
-                    </div>
+                    <div class="menu-item" onclick="mostrarDetalle('Arepa Burguer (Combo)', 'Nuestra espectacular Arepa Burguer acompañada de bebida y papas.', 25000, 'https://i.postimg.cc/8cbwRL4F/combo-arepa.png?w=500')">
+                    <img class="menu-item-img" src="https://i.postimg.cc/8cbwRL4F/combo-arepa.png?w=500" alt="Arepa Burguer Combo">
+                    <span class="item-title">Arepa Burguer (Combo)</span>
+                    <span class="item-price">$23.000</span>
                 </div>
+            </div>
             </section>
 
-<section id="chuzos" class="menu-section">
+            <section id="chuzos" class="menu-section">
                 <h2 class="category-title">Chuzos</h2>
                 <div class="menu-grid">
                     <div class="menu-item" onclick="mostrarDetalle('Chuzo de Cerdo', 'Trozos de cerdo marinados, asados a la perfección con arepita blanca.', 18000, 'https://i.postimg.cc/m2PvvfCv/chuzo.png?w=500')">
@@ -371,69 +353,88 @@
                     </div>
                 </div>
             </section>
+
         </div>
     </section>
-        <footer id="contactos">
+
+    <div id="modal-detalle" class="modal">
+        <div class="modal-content">
+            <img id="img-detalle" src="" alt="Producto">
+            <h3 id="titulo-detalle">Título</h3>
+            <p id="desc-detalle">Descripción...</p>
+            <div class="modal-price" id="precio-detalle">$0</div>
+            <button class="btn-add-cart" id="btn-agregar">Añadir al Carrito 🛒</button>
+            <button class="btn-close-modal" onclick="cerrarModales()">Volver</button>
+        </div>
+    </div>
+
+    <div id="modal-carrito" class="modal">
+        <div class="modal-content">
+            <h3 style="border-bottom: 1px solid var(--primary-color); padding-bottom: 10px; margin-bottom: 15px;">Tu Pedido</h3>
+            
+            <div id="lista-carrito"></div>
+            
+            <div class="cart-option-title">Notas de cocina:</div>
+            <textarea id="notas-cocina" class="cart-textarea" rows="2" placeholder="Ej: Las hamburguesas sin cebolla, salsas por separado..."></textarea>
+            
+            <div class="cart-option-title">Tipo de Entrega:</div>
+            <div class="delivery-options">
+                <label><input type="radio" name="tipo_entrega" value="local" checked onclick="toggleDireccion()"> 🏃 Retiro en el local</label>
+                <label><input type="radio" name="tipo_entrega" value="domicilio" onclick="toggleDireccion()"> 🛵 A domicilio</label>
+            </div>
+            
+            <input type="text" id="direccion-entrega" class="cart-input" placeholder="Escribe tu dirección exacta...">
+            
+            <div class="modal-total">Total: $<span id="total-precio">0</span></div>
+            
+            <button class="btn-whatsapp" onclick="enviarPedidoWhatsApp()">Pedir por WhatsApp 📱</button>
+            <button class="btn-close-modal" onclick="cerrarModales()">Seguir Viendo el Menú</button>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <footer id="contactos">
         <div class="footer-col">
             <h3>Tommy Burger</h3>
             <p>El mejor sabor artesanal de Dosquebradas.</p>
         </div>
-        <div class="footer-col">
-            <h3>Contáctanos</h3>
-            <p>📍 San Felix Playa Rica, Dosquebradas</p>
-            <p>📱 Teléfono: +57 300 000 0000</p>
-        </div>
-        <div class="footer-col">
-            <h3>Síguenos</h3>
-            <a href="#" class="social-btn">WhatsApp</a>
-        </div>
     </footer>
 
     <script>
+        // --- NAVEGACIÓN Y MENÚ MÓVIL ---
         function toggleMenu() {
-            const navLinks = document.getElementById('nav-links');
-            navLinks.classList.toggle('active');
+            document.getElementById('nav-links').classList.toggle('active');
+            document.getElementById('dropdown-menu').classList.remove('active');
+        }
+
+        function cerrarMenuMovil() {
+            document.getElementById('nav-links').classList.remove('active');
+            document.getElementById('dropdown-menu').classList.remove('active');
         }
 
         function toggleDropdown(event) {
             if (window.innerWidth <= 850) {
                 event.preventDefault();
-                const dropdownMenu = document.getElementById('dropdown-menu');
-                dropdownMenu.classList.toggle('active');
+                document.getElementById('dropdown-menu').classList.toggle('active');
             }
         }
 
-        function cerrarMenuMovil() {
-            const navLinks = document.getElementById('nav-links');
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-            }
-            const dropdownMenu = document.getElementById('dropdown-menu');
-            if (dropdownMenu.classList.contains('active')) {
-                dropdownMenu.classList.remove('active');
-            }
-        }
-
-        function mostrarSeccion(seccionId) {
-            document.getElementById('seccion-inicio').style.display = 'none';
-            document.getElementById('seccion-menu').style.display = 'none';
-            document.getElementById('seccion-' + seccionId).style.display = 'block';
+        function mostrarSeccion(seccion) {
+            document.getElementById('seccion-inicio').style.display = (seccion === 'inicio') ? 'block' : 'none';
+            document.getElementById('seccion-menu').style.display = (seccion === 'menu') ? 'block' : 'none';
+            window.scrollTo(0,0);
             cerrarMenuMovil();
-            window.scrollTo(0, 0);
         }
 
-        function irACategoria(categoriaId) {
-            mostrarSeccion('menu'); 
+        function irACategoria(id) {
+            mostrarSeccion('menu');
             setTimeout(() => {
-                const elemento = document.getElementById(categoriaId);
-                if (elemento) {
-                    const y = elemento.getBoundingClientRect().top + window.scrollY - 100;
-                    window.scrollTo({top: y, behavior: 'smooth'});
-                }
-            }, 150);
+                document.getElementById(id).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
             cerrarMenuMovil();
         }
-        
+
         // --- LÓGICA DE ENTREGA (DOMICILIO / RETIRO) ---
         function toggleDireccion() {
             let tipo = document.querySelector('input[name="tipo_entrega"]:checked').value;
@@ -460,7 +461,7 @@
                 cerrarModales();
             };
             
-            document.getElementById('modal-detalle').style.display = 'block';
+            document.getElementById('modal-detalle').style.display = 'flex';
         }
 
         function cerrarModales() {
@@ -473,7 +474,7 @@
             if (producto) {
                 producto.cantidad++;
             } else {
-                carrito.push({ nombre: nombre, precio: precio, quantity: 1, cantidad: 1 });
+                carrito.push({ nombre: nombre, precio: precio, cantidad: 1 });
             }
             actualizarContador();
             mostrarToast(`¡${nombre} agregado!`);
@@ -498,8 +499,8 @@
                     lista.innerHTML += `
                         <div class="cart-item">
                             <div class="cart-info">
-                                <div style="font-weight:bold;">${item.nombre}</div>
-                                <div style="color:var(--primary-color);">$${subtotal.toLocaleString('es-CO')}</div>
+                                <div style="font-weight:bold; color:white;">${item.nombre}</div>
+                                <div style="color:var(--primary-color); font-size:0.95rem;">$${subtotal.toLocaleString('es-CO')}</div>
                             </div>
                             <div class="cart-controls">
                                 <button class="btn-qty" onclick="cambiarCantidad(${index}, -1)">-</button>
@@ -511,7 +512,7 @@
                 });
             }
             document.getElementById('total-precio').innerText = total.toLocaleString('es-CO');
-            document.getElementById('modal-carrito').style.display = 'block';
+            document.getElementById('modal-carrito').style.display = 'flex';
         }
 
         function cambiarCantidad(index, cambio) {
@@ -538,7 +539,7 @@
                 return;
             }
             let tipoEntrega = document.querySelector('input[name="tipo_entrega"]:checked').value;
-            let notas = document.getElementById('notas-cocina').value;
+            let notes = document.getElementById('notas-cocina').value;
             let direccion = document.getElementById('direccion-entrega').value;
             
             let mensaje = `Nuevo Pedido - Tommy Burger\n\n`;
@@ -551,7 +552,7 @@
             });
             
             mensaje += `\nTotal: $${total.toLocaleString('es-CO')}\n`;
-            mensaje += `Entrega: ${tipoEntrega === 'domicilio' ? ' Domicilio' : ' Retiro en local'}\n`;
+            mensaje += `Entrega: ${tipoEntrega === 'domicilio' ? '🛵 Domicilio' : '🏃 Retiro en local'}\n`;
             
             if (tipoEntrega === 'domicilio' && direccion.trim() !== '') {
                 mensaje += `*Dirección:* ${direccion}\n`;
@@ -560,8 +561,8 @@
                 return;
             }
             
-            if (notas.trim() !== '') {
-                mensaje += `*Notas de cocina:* ${notas}\n`;
+            if (notes.trim() !== '') {
+                mensaje += `*Notas de cocina:* ${notes}\n`;
             }
             
             let url = `https://wa.me/573127142755?text=${encodeURIComponent(mensaje)}`;
